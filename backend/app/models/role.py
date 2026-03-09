@@ -1,4 +1,5 @@
 from app.core.database import Base
+from sqlalchemy.orm import relationship
 from sqlalchemy import Column,BigInteger,Integer,TIMESTAMP,String,func,Text
 class Role(Base):
     __tablename__='roles'
@@ -6,3 +7,10 @@ class Role(Base):
     name=Column(String(100),nullable=False,unique=True)
     domain=Column(String(50))
     description=Column(Text)
+
+    role_skills = relationship(
+        "RoleSkill",
+        cascade="all, delete-orphan"
+    )
+
+    

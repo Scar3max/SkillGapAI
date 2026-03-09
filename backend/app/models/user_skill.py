@@ -1,4 +1,5 @@
 from app.core.database import Base
+from sqlalchemy.orm import relationship
 from sqlalchemy import Column,BigInteger,Integer,TIMESTAMP,String,func,ForeignKey,CheckConstraint,UniqueConstraint
 from sqlalchemy.dialects.mysql import TINYINT
 
@@ -20,3 +21,4 @@ class UserSkill(Base):
             name="user_skills_chk_1"
         ),
     )
+    skill = relationship("Skill")

@@ -1,4 +1,5 @@
 from app.core.database import Base
+from sqlalchemy.orm import relationship
 from sqlalchemy import Column,BigInteger,Integer,TIMESTAMP,Text,String,func
 
 class Skill(Base):
@@ -7,3 +8,8 @@ class Skill(Base):
     name=Column(String(100),nullable=False,unique=True)
     category=Column(String(50))
     description=Column(Text)
+
+    role_skills = relationship(
+        "RoleSkill",
+        back_populates="skill"
+    )

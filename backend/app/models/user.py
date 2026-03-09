@@ -1,4 +1,5 @@
 from app.core.database import Base
+from sqlalchemy.orm import relationship
 from sqlalchemy import Column,BigInteger,Integer,TIMESTAMP,String,func,CheckConstraint
 class User(Base):
     __tablename__="users"
@@ -15,4 +16,9 @@ class User(Base):
         CheckConstraint(
             "years_of_experience >= 0", name="user_experience_chk"
         ),
+    )
+
+    user_skills = relationship(
+        "UserSkill",
+        cascade="all, delete-orphan"
     )

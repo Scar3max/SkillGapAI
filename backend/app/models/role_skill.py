@@ -1,4 +1,5 @@
 from app.core.database import Base
+from sqlalchemy.orm import relationship
 from sqlalchemy import Column,BigInteger,Integer,TIMESTAMP,String,func,ForeignKey,Boolean,CheckConstraint,UniqueConstraint
 from sqlalchemy.dialects.mysql import TINYINT
 class RoleSkill(Base):
@@ -19,3 +20,5 @@ class RoleSkill(Base):
             name="uq_role_skills_role_id_skill_id"
         ),
     )
+    role = relationship("Role", back_populates="role_skills")
+    skill = relationship("Skill", back_populates="role_skills")
