@@ -1,10 +1,10 @@
 from typing import Dict, List
 from sqlalchemy.orm import Session
 
-from app.models.user_skill import UserSkill
-from app.models.role import Role
-from app.models.role_skill import RoleSkill
-from app.models.career_prediction import CareerPrediction
+from backend.app.models.user_skill import UserSkill
+from backend.app.models.role import Role
+from backend.app.models.role_skill import RoleSkill
+from backend.app.models.career_prediction import CareerPrediction
 
 # ------------------------
 # Configuration constants
@@ -55,8 +55,9 @@ def analyze_user_career_fit(
             {
                 "Role_id":r["role_id"],
                 "Role_name":r["role_name"],
-                "Role_domain":r["domain"],
-                "Description":r["description"]
+                "fit_level":r['fit_level'],
+                "final_score":r['final_score'],
+                "skill_gaps":r['skill_gaps']
             }
             for r in eligible_roles
         ]

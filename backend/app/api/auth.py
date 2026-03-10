@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from backend.app.core.database import get_db
 from backend.app.models.user import User
 from backend.app.events.user_events import UserRegistered
-from backend.app.events.bus import EventBus
+from backend.app.events.bus import event_bus
 router=APIRouter()
 @router.post('/register')
 def RegisterUser(user:UserDetails,db:Session=Depends(get_db)):
@@ -12,7 +12,7 @@ def RegisterUser(user:UserDetails,db:Session=Depends(get_db)):
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
-    EventBus.publish(EventBus,UserRegistered(new_user.id))
+    event_bus.publish(UserRegistered(new_user.id))
     return new_user
 
 @router.post('/login')

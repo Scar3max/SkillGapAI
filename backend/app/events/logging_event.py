@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from app.events.base import Event
+from backend.app.events.base import Event
 
 @dataclass
 class ProgressLogging(Event):

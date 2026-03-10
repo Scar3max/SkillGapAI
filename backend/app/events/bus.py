@@ -15,3 +15,6 @@ class EventBus:
         handlers = self._subscribers.get(type(event), [])
         for handler in handlers:
             handler(event,**kwargs)
+
+
+event_bus=EventBus()
