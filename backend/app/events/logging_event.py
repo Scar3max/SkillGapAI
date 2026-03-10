@@ -7,3 +7,4 @@ class ProgressLogging(Event):
     roadmap_id:int
     skill_id:int|None
     action_type:str
+    name:str="ProgressLogging"

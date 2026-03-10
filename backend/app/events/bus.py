@@ -1,5 +1,5 @@
 from typing import Callable, Dict, List, Type
-from app.events.base import Event
+from backend.app.events.base import Event
 
 
 class EventBus:

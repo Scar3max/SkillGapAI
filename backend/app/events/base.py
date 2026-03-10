@@ -1,8 +1,6 @@
-from dataclasses import dataclass
+from dataclasses import dataclass,field
 from datetime import datetime
 
 @dataclass
 class Event:
-    name: str
-    user_id:int
-    occurred_at: datetime = datetime.now()
+    occurred_at: datetime = field(default_factory=datetime.now, init=False)
