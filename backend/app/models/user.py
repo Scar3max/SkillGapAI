@@ -1,9 +1,10 @@
-from app.core.database import Base
+from backend.app.core.database import Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column,BigInteger,Integer,TIMESTAMP,String,func,CheckConstraint
 class User(Base):
     __tablename__="users"
     id=Column(BigInteger, primary_key=True,autoincrement=True)
+    Name=Column(String(255), nullable=False)
     email=Column(String(255), nullable=False,unique= True)
     password_hash=Column(String(255), nullable=False)
     education_level=Column(String(100))

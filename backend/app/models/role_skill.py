@@ -1,4 +1,4 @@
-from app.core.database import Base
+from backend.app.core.database import Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column,BigInteger,Integer,TIMESTAMP,String,func,ForeignKey,Boolean,CheckConstraint,UniqueConstraint
 from sqlalchemy.dialects.mysql import TINYINT

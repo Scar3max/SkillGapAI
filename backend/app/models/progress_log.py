@@ -1,4 +1,4 @@
-from app.core.database import Base
+from backend.app.core.database import Base
 from sqlalchemy import Column,BigInteger,Integer,TIMESTAMP,String,func,Text,ForeignKey,CheckConstraint
 
 class ProgressLog(Base):
